@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">HealthyLife</string>
+
+    <string name="col"></string>
+    <string name="col1">Breakfast</string>
+    <string name="col2">Lunch</string>
+    <string name="col3">Dinner</string>
+    <string name="col4">Snacks</string>
+
+    <string name="monday">Mon</string>
+    <string name="tuesday">Tue</string>
+    <string name="wednesday">Wed</string>
+    <string name="thursday">Thu</string>
+    <string name="friday">Fri</string>
+    <string name="saturday">Sat</string>
+    <string name="sunday">Sun</string>
+
+    <string-array name="course">
+        <item>Android</item>
+        <item>Java</item>
+        <item>PHP</item>
+        <item>Python</item>
+    </string-array>
+</resources>
