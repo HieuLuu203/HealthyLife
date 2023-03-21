@@ -15,10 +15,36 @@
     <string name="saturday">Sat</string>
     <string name="sunday">Sun</string>
 
-    <string-array name="course">
-        <item>Android</item>
-        <item>Java</item>
-        <item>PHP</item>
-        <item>Python</item>
+    <string-array name="food">
+        <item>Banana</item>
+        <item>Apple</item>
+        <item>Orange</item>
+        <item>Milk</item>
+        <item>Egg</item>
+        <item>Chicken</item>
+        <item>Beef</item>
+        <item>Fish</item>
+        <item>Pork</item>
+        <item>Tomato</item>
+        <item>Onion</item>
+        <item>Carrot</item>
+        <item>Broccoli</item>
+        <item>Spinach</item>
+        <item>Watermelon</item>
+        <item>Potato</item>
+        <item>Avocado</item>
+        <item>Strawberry</item>
+        <item>Blueberry</item>
+        <item>Cherry</item>
+        <item>Yogurt</item>
+        <item>Butter</item>
+        <item>Ice cream</item>
+        <item>Chocolate</item>
+        <item>Cookie</item>
+        <item>Donut</item>
+        <item>French fries</item>
+        <item>Hot dog</item>
+        <item>Pizza</item>
+        <item>Popcorn</item>
     </string-array>
 </resources>

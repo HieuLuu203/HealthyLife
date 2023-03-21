@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1000dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/layout">
+
+        <CheckBox
+            android:id="@+id/item"
+            android:onClick = "onCheckboxClicked"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:text="apple"
+            android:textColor="@color/black"
+            android:textSize="20sp">
+
+        </CheckBox>
+
+        <EditText
+            android:id="@+id/number"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="100dp"
+            android:layout_toRightOf="@+id/item"
+            android:background="@color/white"
+            android:ems="20"
+            android:gravity="bottom"
+            android:inputType="number">
+
+        </EditText>
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/number"
+            android:gravity="center"
+            android:background="@drawable/up"
+            android:id="@+id/plus">
+
+        </ImageButton>
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-1dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/number"
+            android:layout_below="@+id/plus"
+            android:background="@drawable/down"
+            android:foregroundGravity="bottom"
+            android:id="@+id/minus">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/number"
+            android:text="x100g"
+            android:textColor="@color/SecondaryTextColor"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:id="@+id/note">
+        </TextView>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

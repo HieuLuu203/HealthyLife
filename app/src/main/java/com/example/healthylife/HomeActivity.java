@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.healthylife.ItemDialog.DialogModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +26,9 @@ public class HomeActivity extends AppCompatActivity {
         addData();
         setContentView(R.layout.activity_home);
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this, list, list.size());
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        adapter = new Adapter(this);
+        adapter.setData(list);
         recyclerView.setAdapter(adapter);
     }
 
@@ -37,7 +40,5 @@ public class HomeActivity extends AppCompatActivity {
         list.add(new Model("Fr i"));
         list.add(new Model("Sat"));
         list.add(new Model("Sun"));
-        list.add(new Model(""));
-        list.add(new Model(""));
     }
 }

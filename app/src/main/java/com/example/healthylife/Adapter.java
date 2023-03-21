@@ -1,5 +1,6 @@
 package com.example.healthylife;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,19 +10,42 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+//import com.example.healthylife.ItemDialog.DialogBox;
+
+import com.example.healthylife.ItemDialog.DialogBox;
+import com.example.healthylife.ItemDialog.DialogModel;
+import com.example.healthylife.ItemDialog.DialogAdapter;
 
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
     Context c;
     List<Model> list;
+    List <DialogModel> dialogList;
     int size;
 
-    public Adapter(Context c, List<Model> list, int size) {
+    public  Adapter () {
+        dialogList.add(new DialogModel("Apple"));
+        dialogList.add(new DialogModel("Banana"));
+        dialogList.add(new DialogModel("Orange"));
+        dialogList.add(new DialogModel("Milk"));
+        dialogList.add(new DialogModel("Egg"));
+        dialogList.add(new DialogModel("Rice"));
+        dialogList.add(new DialogModel("Beef"));
+        dialogList.add(new DialogModel("Chicken"));
+        dialogList.add(new DialogModel("Fish"));
+        dialogList.add(new DialogModel("Pork"));
+    }
+    public Adapter(Context c) {
         this.c = c;
-        this.list = list;
-        this.size = size;
+
+    }
+    public void setData(List<Model>models){
+        this.list = models;
     }
 
     @NonNull
@@ -38,8 +62,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
         holder.BBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                new FragmentDialogBox().show(getSupportFragmentManager(), "Dialog Box");
-                Toast.makeText(c, "Success" , Toast.LENGTH_SHORT).show();
+                DialogFragment dialogBox = new DialogBox();
+                dialogBox.show(((HomeActivity) c).getSupportFragmentManager(), "Dialog Box");
+
+
             }
         });
 
@@ -67,7 +93,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
 
     @Override
     public int getItemCount() {
-        return size;
+        if(list == null) return 0;
+        return list.size();
     }
 
     public class MyAdapter extends RecyclerView.ViewHolder {
@@ -83,3 +110,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
         }
     }
 }
+
+
+
+

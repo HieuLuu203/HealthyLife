@@ -7,11 +7,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_weight="1.8"
+            android:layout_weight="1.5"
             android:gravity="center_horizontal"
-            android:padding="10sp"
+            android:padding="8sp"
             android:textColor="@android:color/white"
-            android:background="@drawable/border"
+            android:background="@drawable/blue_bg_grey_border"
             android:textSize="14sp" />
         <TextView
             android:layout_width="0dp"
@@ -20,17 +20,7 @@
             android:gravity="center_horizontal"
             android:padding="10sp"
             android:textColor="@android:color/white"
-            android:background="@drawable/border"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="4"
-            android:gravity="center_horizontal"
-            android:padding="10sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/border"
+            android:background="@drawable/white_bg_grey_border"
             android:textSize="14sp" />
 
         <TextView
@@ -40,7 +30,7 @@
             android:gravity="center_horizontal"
             android:padding="10sp"
             android:textColor="@android:color/white"
-            android:background="@drawable/border"
+            android:background="@drawable/white_bg_grey_border"
             android:textSize="14sp" />
 
         <TextView
@@ -50,7 +40,17 @@
             android:gravity="center_horizontal"
             android:padding="10sp"
             android:textColor="@android:color/white"
-            android:background="@drawable/border"
+            android:background="@drawable/white_bg_grey_border"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="4"
+            android:gravity="center_horizontal"
+            android:padding="10sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/white_bg_grey_border"
             android:textSize="14sp" />
     </TableRow>
 
