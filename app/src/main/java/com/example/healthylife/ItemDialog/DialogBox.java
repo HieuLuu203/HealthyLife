@@ -37,17 +37,17 @@ public class DialogBox extends DialogFragment {
         dialogList.add(new DialogModel("Fish"));
         dialogList.add(new DialogModel("Pork"));
     }
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //inflate layout with recycler view
-        View v = inflater.inflate(R.layout.custom_dialog, container, false);
-        recyclerView = (RecyclerView) v.findViewById(R.id.dialogRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //setadapter
-        DialogAdapter adapter = new DialogAdapter(getContext());
-        recyclerView.setAdapter(adapter);
-        //get your recycler view and populate it.
-        return v;
-    }
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        //inflate layout with recycler view
+//        View v = inflater.inflate(R.layout.custom_dialog, container, false);
+//        recyclerView = (RecyclerView) v.findViewById(R.id.dialogRecyclerView);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        //setadapter
+//        DialogAdapter adapter = new DialogAdapter(getContext());
+//        recyclerView.setAdapter(adapter);
+//        //get your recycler view and populate it.
+//        return v;
+//    }
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class DialogBox extends DialogFragment {
                     }
                 })
                 .setTitle("Choose food")
-                .setView(recyclerView)
+                //.setView(recyclerView)
                 .setPositiveButton(android.R.string.ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {

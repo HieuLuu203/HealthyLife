@@ -82,13 +82,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
                 Toast.makeText(c, "Success" , Toast.LENGTH_SHORT).show();
             }
         });
-
-        holder.SBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(c, "Success" , Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
@@ -99,14 +92,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
 
     public class MyAdapter extends RecyclerView.ViewHolder {
         TextView day;
-        ImageButton BBtn, LBtn, DBtn, SBtn;
+        ImageButton BBtn, LBtn, DBtn;
         public MyAdapter(@NonNull View itemView) {
             super(itemView);
             day = itemView.findViewById(R.id.day);
             BBtn = itemView.findViewById(R.id.addB);
             LBtn = itemView.findViewById(R.id.addL);
             DBtn = itemView.findViewById(R.id.addD);
-            SBtn = itemView.findViewById(R.id.addS);
         }
     }
 }

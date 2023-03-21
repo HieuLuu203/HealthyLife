@@ -43,15 +43,6 @@
             android:background="@drawable/white_bg_grey_border"
             android:textSize="14sp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="4"
-            android:gravity="center_horizontal"
-            android:padding="10sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/white_bg_grey_border"
-            android:textSize="14sp" />
     </TableRow>
 
     <RelativeLayout
@@ -76,7 +67,8 @@
             android:id="@+id/addB"
             android:layout_width="46dp"
             android:layout_height="43dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="45dp"
             android:layout_toRightOf="@+id/day"
             android:background="@android:drawable/ic_input_add" />
 
@@ -84,7 +76,8 @@
             android:id="@+id/addL"
             android:layout_width="46dp"
             android:layout_height="43dp"
-            android:layout_marginLeft="37dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="55dp"
             android:layout_toRightOf="@+id/addB"
             android:background="@android:drawable/ic_input_add" />
 
@@ -92,17 +85,11 @@
             android:id="@+id/addD"
             android:layout_width="46dp"
             android:layout_height="43dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="55dp"
             android:layout_toRightOf="@+id/addL"
             android:background="@android:drawable/ic_input_add" />
 
-        <ImageButton
-            android:id="@+id/addS"
-            android:layout_width="46dp"
-            android:layout_height="43dp"
-            android:layout_marginLeft="38dp"
-            android:layout_toRightOf="@+id/addD"
-            android:background="@android:drawable/ic_input_add" />
     </RelativeLayout>
 
 </TableLayout>

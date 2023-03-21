@@ -71,17 +71,6 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_weight="4"
-                    android:background="@drawable/border"
-                    android:gravity="center_horizontal"
-                    android:padding="10sp"
-                    android:text="@string/col4"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
             </TableRow>
         </TableLayout>
 

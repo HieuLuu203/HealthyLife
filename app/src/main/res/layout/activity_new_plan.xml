@@ -8,22 +8,7 @@
     android:clickable="true"
     tools:context=".NewPlanActivity">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="142dp"
-        android:layout_height="54dp"
-        android:clickable="false"
-        android:editable="false"
-        android:text="Cân mục tiêu:   "
-        android:textColor="#FDFCFC"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NumberSigned"
-        app:layout_constraintVertical_bias="0.725" />
+
 
     <TextView
         android:id="@+id/textView2"
@@ -43,6 +28,8 @@
 
     <EditText
         android:id="@+id/PersonName"
+        android:hint="Username"
+        android:textColorHint="@color/grey"
         android:layout_width="355dp"
         android:layout_height="61dp"
         android:background="@drawable/input_bg"
@@ -50,7 +37,7 @@
         android:contextClickable="false"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingLeft="150dp"
+        android:paddingLeft="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FDF8F8"
         android:textSize="22dp"
@@ -64,13 +51,15 @@
 
     <EditText
         android:id="@+id/NumberSigned"
+        android:hint="Cân hiện tại"
+        android:paddingLeft="20dp"
         android:layout_width="349dp"
         android:layout_height="64dp"
         android:background="@drawable/input_bg"
         android:contextClickable="false"
         android:ems="10"
         android:inputType="numberSigned"
-        android:paddingLeft="180dp"
+        android:textColorHint="@color/grey"
         android:textColor="#FFFDFD"
         android:textSize="22dp"
         android:textStyle="bold"
@@ -83,13 +72,15 @@
 
     <EditText
         android:id="@+id/NumberSigned2"
+        android:hint="Cân mục tiêu"
+        android:textColorHint="@color/grey"
         android:layout_width="349dp"
         android:layout_height="64dp"
         android:background="@drawable/input_bg"
         android:contextClickable="false"
         android:ems="10"
         android:inputType="numberSigned"
-        android:paddingLeft="180dp"
+        android:paddingLeft="20dp"
         android:textColor="#FFFDFD"
         android:textSize="22dp"
         android:textStyle="bold"
@@ -157,38 +148,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.566" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="148dp"
-        android:layout_height="63dp"
-        android:clickable="false"
-        android:editable="false"
-        android:text="Username: "
-        android:textColor="#FDFCFC"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/NumberSigned"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.612" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="148dp"
-        android:layout_height="55dp"
-        android:clickable="false"
-        android:editable="false"
-        android:text="Cân hiện tại:   "
-        android:textColor="#FAF8F8"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/NumberSigned2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PersonName"
-        app:layout_constraintVertical_bias="0.616" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
