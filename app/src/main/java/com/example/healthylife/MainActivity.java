@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
+import com.example.healthylife.Home.HomeActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btn1, btn2;

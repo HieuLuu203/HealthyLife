@@ -1,7 +1,8 @@
-package com.example.healthylife;
+package com.example.healthylife.Home;
 
-import android.app.Dialog;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import com.example.healthylife.ItemDialog.DialogBox;
 
 import com.example.healthylife.ItemDialog.DialogBox;
 import com.example.healthylife.ItemDialog.DialogModel;
-import com.example.healthylife.ItemDialog.DialogAdapter;
+import com.example.healthylife.R;
 
 import java.util.List;
 
@@ -65,6 +65,24 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
                 DialogFragment dialogBox = new DialogBox();
                 dialogBox.show(((HomeActivity) c).getSupportFragmentManager(), "Dialog Box");
 
+//                AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+//                View dialogView = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_item, null);
+//                builder.setMultiChoiceItems(R.array.food, null, new DialogInterface.OnMultiChoiceClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+//                        if (isChecked) {
+//                            AlertDialog.Builder amountDialog = new AlertDialog.Builder(view.getRootView().getContext());
+//                            View amountView = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_number, null);
+//                            amountDialog.setView(amountView);
+//                            amountDialog.show();
+//                        } else {
+//                            // Else, if the item is already in the array, remove it
+//                            Toast.makeText(c, "Unchecked", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//                builder.setView(dialogView);
+//                builder.show();
 
             }
         });

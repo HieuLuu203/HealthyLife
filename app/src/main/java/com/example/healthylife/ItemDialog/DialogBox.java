@@ -37,21 +37,23 @@ public class DialogBox extends DialogFragment {
         dialogList.add(new DialogModel("Fish"));
         dialogList.add(new DialogModel("Pork"));
     }
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        //inflate layout with recycler view
-//        View v = inflater.inflate(R.layout.custom_dialog, container, false);
-//        recyclerView = (RecyclerView) v.findViewById(R.id.dialogRecyclerView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        //setadapter
-//        DialogAdapter adapter = new DialogAdapter(getContext());
-//        recyclerView.setAdapter(adapter);
-//        //get your recycler view and populate it.
-//        return v;
-//    }
-    @NonNull
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //inflate layout with recycler view
+        super.onCreateView(inflater, container, savedInstanceState);
+        View v = inflater.inflate(R.layout.custom_dialog, container, false);
+        recyclerView = (RecyclerView) v.findViewById(R.id.dialogRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //setadapter
+        DialogAdapter adapter = new DialogAdapter(getContext());
+        recyclerView.setAdapter(adapter);
+        //get your recycler view and populate it.
+
+        return v;
+    }
+
+//    public Dialog onCreateDialog(Bundle savedInstanceState) {
+//        super.onCreateDialog(savedInstanceState);
 //        View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_dialog, null);
 //        recyclerView = view.findViewById(R.id.dialogRecyclerView);
 //        adapter = new DialogAdapter(getContext());
@@ -59,34 +61,31 @@ public class DialogBox extends DialogFragment {
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
 //        recyclerView.setLayoutManager(linearLayoutManager);
 //        adapter.setData(dialogList);
-//        System.out.println("2");
-
-        return new AlertDialog.Builder(getActivity())
-                .setMultiChoiceItems(R.array.food, null, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                        if (isChecked) {
-                            // If the user checked the item, add it to the selected items
-                            Toast.makeText(getContext(), "Checked", Toast.LENGTH_SHORT).show();
-                        } else {
-                            // Else, if the item is already in the array, remove it
-                            Toast.makeText(getContext(), "Unchecked", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                })
-                .setTitle("Choose food")
-                //.setView(recyclerView)
-                .setPositiveButton(android.R.string.ok,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                // do something
-                                System.out.println(dialogList.size());
-                            }
-                        }
-                ).create();
-    }
-
-
+//
+//        return new AlertDialog.Builder(getActivity())
+////                .setMultiChoiceItems(R.array.food, null, new DialogInterface.OnMultiChoiceClickListener() {
+////                    @Override
+////                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+////                        if (isChecked) {
+////                            // If the user checked the item, add it to the selected items
+////                            Toast.makeText(getContext(), "Checked", Toast.LENGTH_SHORT).show();
+////                        } else {
+////                            // Else, if the item is already in the array, remove it
+////                            Toast.makeText(getContext(), "Unchecked", Toast.LENGTH_SHORT).show();
+////                        }
+////                    }
+////                })
+//                .setTitle("Choose food")
+//                .setView(view)
+//                .setPositiveButton(android.R.string.ok,
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                // do something
+//                                System.out.println(dialogList.size());
+//                            }
+//                        }
+//                ).create();
+//    }
 
 }
 

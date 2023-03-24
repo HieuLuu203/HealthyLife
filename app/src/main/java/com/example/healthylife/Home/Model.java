@@ -1,4 +1,4 @@
-package com.example.healthylife;
+package com.example.healthylife.Home;
 
 public class Model {
     private String day;

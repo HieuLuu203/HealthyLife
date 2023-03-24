@@ -1,15 +1,12 @@
-package com.example.healthylife;
+package com.example.healthylife.Home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 
-import com.example.healthylife.ItemDialog.DialogModel;
+import com.example.healthylife.R;
 
 import java.util.ArrayList;
 import java.util.List;

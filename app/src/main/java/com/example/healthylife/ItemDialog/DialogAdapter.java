@@ -44,7 +44,7 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyAdapter>
             return;
         }
         holder.foodName.setText(model.getFoodName());
-        holder.number.setText(model.getNumber());
+        holder.number.setText(model.getNumber() + "");
         holder.foodName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
