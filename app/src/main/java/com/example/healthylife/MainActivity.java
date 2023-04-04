@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.content.Intent;
 
 import com.example.healthylife.Home.HomeActivity;
+import com.example.healthylife.Today.TodayBreakfast;
+import com.example.healthylife.Today.TodayDinner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewPlanActivity.class);
+                Intent intent = new Intent(MainActivity.this, TodayBreakfast.class);
                 startActivity(intent);
             }
         });

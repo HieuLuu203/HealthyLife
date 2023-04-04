@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,17 +16,32 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.healthylife.Model.Plan;
+import com.example.healthylife.Model.PlanManager;
 import com.example.healthylife.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DialogBox extends DialogFragment {
+    private static final String TAG = "DialogBox";
     RecyclerView recyclerView;
     List<DialogModel> dialogList = new ArrayList<>();
+    Plan plan;
+    String meal;
     DialogAdapter adapter;
 
+    private TextView cancelBtn, okBtn;
+
+    public void setData(Plan plan, String meal)
+    {
+        this.plan = plan;
+        System.out.println(plan.getDay());
+        this.meal = meal;
+    }
+
     public DialogBox() {
+        dialogList.add(new DialogModel("Chicken"));
         dialogList.add(new DialogModel("Apple"));
         dialogList.add(new DialogModel("Banana"));
         dialogList.add(new DialogModel("Orange"));
@@ -33,9 +49,16 @@ public class DialogBox extends DialogFragment {
         dialogList.add(new DialogModel("Egg"));
         dialogList.add(new DialogModel("Rice"));
         dialogList.add(new DialogModel("Beef"));
-        dialogList.add(new DialogModel("Chicken"));
         dialogList.add(new DialogModel("Fish"));
         dialogList.add(new DialogModel("Pork"));
+        dialogList.add(new DialogModel("Pasta"));
+        dialogList.add(new DialogModel("Bread"));
+        dialogList.add(new DialogModel("Potato"));
+        dialogList.add(new DialogModel("Tomato"));
+        dialogList.add(new DialogModel("Cucumber"));
+        dialogList.add(new DialogModel("Carrot"));
+        dialogList.add(new DialogModel("Spinach"));
+        dialogList.add(new DialogModel("Cabage"));
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,49 +66,75 @@ public class DialogBox extends DialogFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.custom_dialog, container, false);
         recyclerView = (RecyclerView) v.findViewById(R.id.dialogRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity(), RecyclerView.VERTICAL, false));
         //setadapter
-        DialogAdapter adapter = new DialogAdapter(getContext());
+        DialogAdapter adapter = new DialogAdapter(this.getActivity());
+        adapter.setData(dialogList, plan, meal);
         recyclerView.setAdapter(adapter);
-        //get your recycler view and populate it.
+
+        okBtn = v.findViewById(R.id.OKbtn);
+        cancelBtn = v.findViewById(R.id.Cancelbtn);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.listClear();
+                getDialog().dismiss();
+            }
+        });
+
+        okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < adapter.getList().size(); i++)
+                {
+                    System.out.println(adapter.getList().get(i).getNumber());
+                }
+                plan.setMeal(adapter.getList(), meal);
+                PlanManager.getInstance().setPlan(getPlan(), "Mon");
+                adapter.listClear();
+                getDialog().dismiss();
+            }
+        });
 
         return v;
     }
 
+    public Plan getPlan() {return this.plan;}
+
+//    public void update ()
+//    {
+//        DialogAdapter adapter = new DialogAdapter(this.getActivity());
+//        adapter.setData(dialogList, plan, meal);
+//        recyclerView.setAdapter(adapter);
+//    }
+
 //    public Dialog onCreateDialog(Bundle savedInstanceState) {
 //        super.onCreateDialog(savedInstanceState);
-//        View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_dialog, null);
-//        recyclerView = view.findViewById(R.id.dialogRecyclerView);
-//        adapter = new DialogAdapter(getContext());
-//        recyclerView.setAdapter(adapter);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//        adapter.setData(dialogList);
+////        View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_dialog, null);
+////        recyclerView = view.findViewById(R.id.dialogRecyclerView);
+////        adapter = new DialogAdapter(getContext());
+////        recyclerView.setAdapter(adapter);
+////        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+////        recyclerView.setLayoutManager(linearLayoutManager);
+////        adapter.setData(dialogList);
 //
 //        return new AlertDialog.Builder(getActivity())
-////                .setMultiChoiceItems(R.array.food, null, new DialogInterface.OnMultiChoiceClickListener() {
-////                    @Override
-////                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-////                        if (isChecked) {
-////                            // If the user checked the item, add it to the selected items
-////                            Toast.makeText(getContext(), "Checked", Toast.LENGTH_SHORT).show();
-////                        } else {
-////                            // Else, if the item is already in the array, remove it
-////                            Toast.makeText(getContext(), "Unchecked", Toast.LENGTH_SHORT).show();
-////                        }
-////                    }
-////                })
 //                .setTitle("Choose food")
-//                .setView(view)
 //                .setPositiveButton(android.R.string.ok,
 //                        new DialogInterface.OnClickListener() {
 //                            public void onClick(DialogInterface dialog, int whichButton) {
 //                                // do something
-//                                System.out.println(dialogList.size());
-//                            }
+//                                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
 //                        }
-//                ).create();
-//    }
+//                })
+//                .setNegativeButton(android.R.string.cancel,
+//                        new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        // do something
+//                        Toast.makeText(getContext(), "Cancel", Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                }
 
 }
 

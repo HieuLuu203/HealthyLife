@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.healthylife.ItemDialog.DialogBox;
 import com.example.healthylife.ItemDialog.DialogModel;
+import com.example.healthylife.Model.PlanManager;
 import com.example.healthylife.R;
 
 import java.util.List;
@@ -25,27 +27,17 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
     Context c;
     List<Model> list;
-    List <DialogModel> dialogList;
+    PlanManager planManager = PlanManager.getInstance();
     int size;
 
-    public  Adapter () {
-        dialogList.add(new DialogModel("Apple"));
-        dialogList.add(new DialogModel("Banana"));
-        dialogList.add(new DialogModel("Orange"));
-        dialogList.add(new DialogModel("Milk"));
-        dialogList.add(new DialogModel("Egg"));
-        dialogList.add(new DialogModel("Rice"));
-        dialogList.add(new DialogModel("Beef"));
-        dialogList.add(new DialogModel("Chicken"));
-        dialogList.add(new DialogModel("Fish"));
-        dialogList.add(new DialogModel("Pork"));
-    }
+    public  Adapter () {}
     public Adapter(Context c) {
         this.c = c;
 
     }
     public void setData(List<Model>models){
         this.list = models;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -62,28 +54,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
         holder.BBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment dialogBox = new DialogBox();
+                DialogBox dialogBox = new DialogBox();
+                dialogBox.setData(planManager.getPlan(model.getDay()), "breakfast");
                 dialogBox.show(((HomeActivity) c).getSupportFragmentManager(), "Dialog Box");
-
-//                AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
-//                View dialogView = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_item, null);
-//                builder.setMultiChoiceItems(R.array.food, null, new DialogInterface.OnMultiChoiceClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-//                        if (isChecked) {
-//                            AlertDialog.Builder amountDialog = new AlertDialog.Builder(view.getRootView().getContext());
-//                            View amountView = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_number, null);
-//                            amountDialog.setView(amountView);
-//                            amountDialog.show();
-//                        } else {
-//                            // Else, if the item is already in the array, remove it
-//                            Toast.makeText(c, "Unchecked", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//                builder.setView(dialogView);
-//                builder.show();
-
+//                List<DialogModel> test = planManager.getPlan("Mon").getBreakfast();
+//                for (DialogModel i : test)
+//                    System.out.println(i.getFoodName());
             }
         });
 

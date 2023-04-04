@@ -12,10 +12,16 @@
         android:theme="@style/Theme.HealthyLife"
         tools:targetApi="31">
         <activity
+            android:name=".Today.TodayLunch"
+            android:exported="false" />
+        <activity
+            android:name=".Today.TodayBreakfast"
+            android:exported="false" />
+        <activity
             android:name=".Home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".NewPlanActivity"
+            android:name=".Today.TodayDinner"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

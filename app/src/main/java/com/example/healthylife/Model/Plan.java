@@ -1,8 +1,22 @@
 package com.example.healthylife.Model;
 
+//import androidx.room.Entity;
+//import androidx.room.PrimaryKey;
+
+import com.example.healthylife.ItemDialog.DialogModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//@Entity (tableName = "plan")
+
 public class Plan {
-    String day, foodName;
-    int foodCalories, number;
+//    @PrimaryKey(autoGenerate = true)
+    String day;
+    private int id;
+    List<DialogModel> breakfast = new ArrayList<>();
+    List<DialogModel> lunch = new ArrayList<>();
+    List<DialogModel> dinner = new ArrayList<>();
 
     public String getDay() {
         return day;
@@ -12,32 +26,58 @@ public class Plan {
         this.day = day;
     }
 
-    public String getFoodName() {
-        return foodName;
+    public List<DialogModel> getBreakfast() {
+        return breakfast;
     }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
+    public void setBreakfast(List<DialogModel> breakfast) {
+        this.breakfast = breakfast;
     }
 
-    public int getFoodCalories() {
-        return foodCalories;
+    public List<DialogModel> getLunch() {
+        return lunch;
     }
 
-    public void setFoodCalories(int foodCalories) {
-        this.foodCalories = foodCalories;
+    public void setLunch(List<DialogModel> lunch) {
+        this.lunch = lunch;
     }
 
-    public int getNumber() {
-        return number;
+    public List<DialogModel> getDinner() {
+        return dinner;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setDinner(List<DialogModel> dinner) {
+        this.dinner = dinner;
     }
 
-    @Override
-    public String toString() {
-        return day + " " + foodName + " " + foodCalories + " " + number;
+    public void addBreakfast(DialogModel item) {
+       breakfast.add(item);
+   }
+
+    public void addLunch(DialogModel item) {
+         lunch.add(item);
+    }
+
+    public void addDinner(DialogModel item) {
+         dinner.add(item);
+    }
+
+    public void setMeal(List<DialogModel> listMeal, String meal) {
+        if (meal.equals("breakfast")) setBreakfast(listMeal);
+        else if (meal.equals("lunch")) setLunch(listMeal);
+        else setDinner(listMeal);
+    }
+
+    public DialogModel getFood (String meal, DialogModel food)
+    {
+        List <DialogModel> tmp;
+        if (meal.equals("breakfast")) tmp = this.breakfast;
+        else if (meal.equals("lunch")) tmp = this.lunch;
+        else tmp = this.dinner;
+        for (DialogModel i : tmp)
+        {
+            if (i.getFoodName().equals(food.getFoodName())) return i;
+        }
+        return food;
     }
 }
