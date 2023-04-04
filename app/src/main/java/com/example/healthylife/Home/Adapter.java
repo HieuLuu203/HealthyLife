@@ -22,16 +22,20 @@ import com.example.healthylife.ItemDialog.DialogModel;
 import com.example.healthylife.Model.PlanManager;
 import com.example.healthylife.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
     Context c;
     List<Model> list;
+    List<DialogBox> dialogBoxes = new ArrayList<>();
     PlanManager planManager = PlanManager.getInstance();
     int size;
 
     public  Adapter () {}
     public Adapter(Context c) {
+        for (int i=0; i<7; i++)
+            dialogBoxes.add(new DialogBox());
         this.c = c;
 
     }
@@ -54,7 +58,32 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
         holder.BBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogBox dialogBox = new DialogBox();
+                DialogBox dialogBox = null;
+                switch (model.getDay())
+                {
+                    case "Mon":
+                        dialogBox = dialogBoxes.get(0);
+                        break;
+                    case "Tue":
+                        dialogBox = dialogBoxes.get(1);
+                        break;
+                    case "Wed":
+                        dialogBox = dialogBoxes.get(2);
+                        break;
+                    case "Thu":
+                        dialogBox = dialogBoxes.get(3);
+                        break;
+                    case "Fri":
+                        dialogBox = dialogBoxes.get(4);
+                        break;
+                    case "Sat":
+                        dialogBox = dialogBoxes.get(5);
+                        break;
+                    case "Sun":
+                        dialogBox = dialogBoxes.get(6);
+                        break;
+                }
+
                 dialogBox.setData(planManager.getPlan(model.getDay()), "breakfast");
                 dialogBox.show(((HomeActivity) c).getSupportFragmentManager(), "Dialog Box");
 //                List<DialogModel> test = planManager.getPlan("Mon").getBreakfast();
