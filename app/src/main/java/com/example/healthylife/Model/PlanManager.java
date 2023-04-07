@@ -6,25 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 enum Weekday {
-    Mon, Tue, Wed, Thu, Fri, Sa, Sun
+    Mon, Tue, Wed, Thu, Fri, Sat, Sun
 }
 
 public class PlanManager {
-    private static List<Plan> list = new ArrayList<>();
-    public static PlanManager instance;
-
-    private PlanManager() {
+    private List<Plan> list = new ArrayList<>();
+    private static PlanManager instance;
+    private int id;
+    private void init(){
         for (Weekday i : Weekday.values()) {
             Plan plan = new Plan();
             plan.setDay(i.toString());
             list.add(plan);
         }
-        System.out.println(list.size());
+    }
+
+    private PlanManager() {
     }
 
     public static PlanManager getInstance() {
-        if (instance == null)
+        if (instance == null){
+            System.out.println("Init PlanManager");
             instance = new PlanManager();
+            instance.init();
+        }
         return instance;
     }
     public void addPlan(Plan plan) {
@@ -68,8 +73,20 @@ public class PlanManager {
 
     public void setPlan(Plan plan, String day)
     {
-        for (Plan i : list)
-            if (i.getDay().equals(day)) i = plan;
+        for(int i = 0 ; i < list.size(); i++) {
+            if (list.get(i).getDay().equals(day)) {
+                list.get(i).setBreakfast(plan.getBreakfast());
+                System.out.println(plan.getBreakfast().size());
+            }
+        }
+
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

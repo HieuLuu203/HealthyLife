@@ -8,6 +8,44 @@
     android:clickable="true"
     tools:context=".Today.TodayDinner">
 
+    <RelativeLayout
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+        <ImageButton
+            android:id="@+id/returnBtn"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/home3">
+
+        </ImageButton>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Day"
+        android:textSize="22dp"
+        android:textColor="@color/white">
+
+    </TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/day"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"

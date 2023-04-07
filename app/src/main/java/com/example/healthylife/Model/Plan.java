@@ -68,6 +68,12 @@ public class Plan {
         else setDinner(listMeal);
     }
 
+    public List<DialogModel> getMeal(String meal) {
+        if (meal.equals("breakfast")) return getBreakfast();
+        else if (meal.equals("lunch")) return getLunch();
+        else return getDinner();
+    }
+
     public DialogModel getFood (String meal, DialogModel food)
     {
         List <DialogModel> tmp;

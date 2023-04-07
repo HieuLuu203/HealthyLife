@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.healthylife.ItemDialog.DialogBox;
 import com.example.healthylife.ItemDialog.DialogModel;
+import com.example.healthylife.Model.Plan;
 import com.example.healthylife.Model.PlanManager;
 import com.example.healthylife.R;
 
@@ -29,7 +30,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
     Context c;
     List<Model> list;
     List<DialogBox> dialogBoxes = new ArrayList<>();
-    PlanManager planManager = PlanManager.getInstance();
     int size;
 
     public  Adapter () {}
@@ -58,6 +58,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
         holder.BBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                List<Plan>plan = PlanManager.getInstance().getList();
+                for(int i =0 ; i < plan.size() ; ++i){
+                }
                 DialogBox dialogBox = null;
                 switch (model.getDay())
                 {
@@ -84,11 +87,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyAdapter>{
                         break;
                 }
 
-                dialogBox.setData(planManager.getPlan(model.getDay()), "breakfast");
+                dialogBox.setData(PlanManager.getInstance().getPlan(model.getDay()), "breakfast", model.getDay());
                 dialogBox.show(((HomeActivity) c).getSupportFragmentManager(), "Dialog Box");
-//                List<DialogModel> test = planManager.getPlan("Mon").getBreakfast();
-//                for (DialogModel i : test)
-//                    System.out.println(i.getFoodName());
             }
         });
 

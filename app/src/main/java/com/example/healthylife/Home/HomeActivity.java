@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.healthylife.MainActivity;
+import com.example.healthylife.Model.Plan;
+import com.example.healthylife.Model.PlanManager;
 import com.example.healthylife.R;
 
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         list.add(new Model("Tue"));
         list.add(new Model("Wed"));
         list.add(new Model("Thu"));
-        list.add(new Model("Fr i"));
+        list.add(new Model("Fri"));
         list.add(new Model("Sat"));
         list.add(new Model("Sun"));
     }

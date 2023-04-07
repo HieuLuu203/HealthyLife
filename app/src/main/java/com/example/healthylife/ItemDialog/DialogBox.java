@@ -28,16 +28,16 @@ public class DialogBox extends DialogFragment {
     RecyclerView recyclerView;
     List<DialogModel> dialogList = new ArrayList<>();
     Plan plan;
-    String meal;
+    String meal, day;
     DialogAdapter adapter;
 
     private TextView cancelBtn, okBtn;
 
-    public void setData(Plan plan, String meal)
+    public void setData(Plan plan, String meal, String day)
     {
         this.plan = plan;
-        System.out.println(plan.getDay());
         this.meal = meal;
+        this.day= day;
     }
 
     public DialogBox() {
@@ -58,7 +58,7 @@ public class DialogBox extends DialogFragment {
         dialogList.add(new DialogModel("Cucumber"));
         dialogList.add(new DialogModel("Carrot"));
         dialogList.add(new DialogModel("Spinach"));
-        dialogList.add(new DialogModel("Cabage"));
+        dialogList.add(new DialogModel("Cabbage"));
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,12 +85,8 @@ public class DialogBox extends DialogFragment {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < adapter.getList().size(); i++)
-                {
-                    System.out.println(adapter.getList().get(i).getNumber());
-                }
                 plan.setMeal(adapter.getList(), meal);
-                PlanManager.getInstance().setPlan(getPlan(), "Mon");
+                PlanManager.getInstance().setPlan(plan, day);
                 adapter.listClear();
                 getDialog().dismiss();
             }
@@ -100,41 +96,6 @@ public class DialogBox extends DialogFragment {
     }
 
     public Plan getPlan() {return this.plan;}
-
-//    public void update ()
-//    {
-//        DialogAdapter adapter = new DialogAdapter(this.getActivity());
-//        adapter.setData(dialogList, plan, meal);
-//        recyclerView.setAdapter(adapter);
-//    }
-
-//    public Dialog onCreateDialog(Bundle savedInstanceState) {
-//        super.onCreateDialog(savedInstanceState);
-////        View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_dialog, null);
-////        recyclerView = view.findViewById(R.id.dialogRecyclerView);
-////        adapter = new DialogAdapter(getContext());
-////        recyclerView.setAdapter(adapter);
-////        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-////        recyclerView.setLayoutManager(linearLayoutManager);
-////        adapter.setData(dialogList);
-//
-//        return new AlertDialog.Builder(getActivity())
-//                .setTitle("Choose food")
-//                .setPositiveButton(android.R.string.ok,
-//                        new DialogInterface.OnClickListener() {
-//                            public void onClick(DialogInterface dialog, int whichButton) {
-//                                // do something
-//                                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
-//                        }
-//                })
-//                .setNegativeButton(android.R.string.cancel,
-//                        new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int whichButton) {
-//                        // do something
-//                        Toast.makeText(getContext(), "Cancel", Toast.LENGTH_SHORT).show();
-//                    }
-//                })
-//                }
 
 }
 
